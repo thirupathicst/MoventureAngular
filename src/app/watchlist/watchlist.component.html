@@ -1,1 +1,84 @@
-<p>watchlist works!</p>
+<div class="row">
+    <div class="col-3">
+        <h4>Watchlist</h4>
+    </div>
+    <div class="offset-6 col-3">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-lg"></i> Add Playlist</button>
+    </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col-3">
+        <div class="col mb-3">
+            <h6>Playlists</h6>
+            <button class="btn btn-primary btn-lg">Action </button>
+        </div>
+        <div class="col mb-3">
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-primary btn-lg dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Drama
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col mb-3">
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-primary btn-lg dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Drama
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="row">
+            <div class="col-3">
+                <svg width="100" height="150" class="placeholder">
+                    <rect width="100" height="150"></rect>
+                </svg>
+            </div>
+            <div class="col-9">
+                <h4>Spencer Confidential</h4>
+                <h6><span>Action</span> <span>2 h 10 min</span></h6>
+                <p>
+                    A boy stands on a station platform as a train is about to leave. Should he go with his mother or
+                    stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose,
+                    anything is possible
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add playlist</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label>Playlist name</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary col-2">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +17,7 @@ import { HeaderlayoutComponent } from './headerlayout/headerlayout.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { GuestlayoutComponent } from './guestlayout/guestlayout.component';
 import { AuthorizedlayoutComponent } from './authorizedlayout/authorizedlayout.component';
+import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +30,22 @@ import { AuthorizedlayoutComponent } from './authorizedlayout/authorizedlayout.c
     HeaderlayoutComponent,
     WatchlistComponent,
     GuestlayoutComponent,
-    AuthorizedlayoutComponent
+    AuthorizedlayoutComponent,
+    MoviedetailsComponent
   ],
+
   imports: [
+  
+
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [],
+  schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
