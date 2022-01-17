@@ -18,6 +18,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { GuestlayoutComponent } from './guestlayout/guestlayout.component';
 import { AuthorizedlayoutComponent } from './authorizedlayout/authorizedlayout.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
+import { EditactorComponent } from './editactor/editactor.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
     WatchlistComponent,
     GuestlayoutComponent,
     AuthorizedlayoutComponent,
-    MoviedetailsComponent
+    MoviedetailsComponent,
+    EditactorComponent
   ],
 
   imports: [

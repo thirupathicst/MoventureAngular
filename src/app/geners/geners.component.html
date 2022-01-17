@@ -1,1 +1,60 @@
-<p>geners works!</p>
+<div class="row">
+    <div class="col-3">
+        <h4>Genres</h4>
+    </div>
+    <div class="offset-6 col-3">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-lg"></i> Add genre</button>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-3">
+        <div class="card mb-2" *ngFor="let item of actor">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col fs-5">
+                        {{item.name}}
+                    </div>
+                    <div class=" col text-end">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn  dropdown-toggle"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li><a class="dropdown-item" (click)="onClick('e',item.id)" href="javascript:">Edit</a></li>
+                                <li><a class="dropdown-item" (click)="onClick('d',item.id)" href="javascript:">Delete</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form [formGroup]="_Form" (ngSubmit)="onSubmit()">
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add genre</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label>Genre name</label>
+                    <input type="text" class="form-control" formControlName="genreName"
+                    [ngClass]="{'is-invalid': submitted && f.genreName.errors}">
+                    <label *ngIf="submitted && f.genreName.invalid" class="invalid-feedback text-end">
+                        Please enter genre.
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary col-2">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

@@ -1,62 +1,125 @@
-<div>
-    <h4>Add actor</h4>
-    <div class="card">
-        <div class="card-body">
-            <h5>Actor details</h5>
-            <div class="row">
-                <div class="col-6">
-                    <label>Name</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-2">
-                    <label>Born in</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-2">
-                    <label>Born in</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-2">
-                    <label>Born in</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-3">
-                    <label>Genres</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-3">
-                    <label>City</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-3">
-                    <label>State</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="col-3">
-                    <label>Country</label>
-                    <input type="text" class="form-control">
-                </div>
-
-            </div>
-        </div>
+<div class="row">
+    <div class="col-2">
+        <h4>Actors</h4>
     </div>
-    <br>
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-4">
-                    <h5 class="card-title">Thumbnail</h5>
-                    <input type="file" class="form-control" accept="image/jpg, image/png, image/jpeg">
-                </div>
-                <div class="col-8">
-                    <h5 class="card-title">Description</h5>
-                    <textarea class="form-control" rows="6"></textarea>
-                </div>
-            </div>
-        </div>
+    <div class="col-3 offset-5">
+        <input type="text" class="form-control">
     </div>
-    <br>
-    <div class="text-end">
-        <button class="btn btn-primary">Create</button>
+    <div class="col-2 text-end">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add
+            actor</button>
     </div>
 </div>
+<br>
+<div class="row">
+    <div class="col-2">
+        <svg class="placeholder" width=150>
+            <rect></rect>
+        </svg>
+        <h5>Jared Leto</h5>
+        <h6>Nemo Adult</h6>
+    </div>
+    <div class="col-2">
+        <svg class="placeholder" width=150>
+            <rect></rect>
+        </svg>
+        <h5>Jared Leto</h5>
+        <h6>Nemo Adult</h6>
+    </div>
+    <div class="col-2">
+        <svg class="placeholder" width=150>
+            <rect></rect>
+        </svg>
+        <h5>Jared Leto</h5>
+        <h6>Nemo Adult</h6>
+    </div>
+    <div class="col-2">
+        <svg class="placeholder" width=150>
+            <rect></rect>
+        </svg>
+        <h5>Jared Leto</h5>
+        <h6>Nemo Adult</h6>
+    </div>
+    <div class="col-2">
+        <svg class="placeholder" width=150>
+            <rect></rect>
+        </svg>
+        <h5>Jared Leto</h5>
+        <h6>Nemo Adult</h6>
+    </div>
+    <div class="col-2">
+        <svg class="placeholder" width=150>
+            <rect></rect>
+        </svg>
+        <h5>Jared Leto</h5>
+        <h6>Nemo Adult</h6>
+    </div>
+
+</div>
+
+<form [formGroup]="_Form" (ngSubmit)="onSubmit()">
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add actor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="text-center">
+                            <svg class="placeholder" width="200" height="250"></svg>
+                        </div>
+                        <div class="mb-2">
+                            <label>Name</label>
+                            <input type="text" class="form-control" formControlName="name"
+                                [ngClass]="{'is-invalid': submitted && f.name.errors}">
+                            <label *ngIf="submitted && f.name.invalid" class="invalid-feedback text-end">
+                                Please enter name.
+                            </label>
+                        </div>
+                        <div class="mb-2">
+                            <label>Born in</label>
+                            <select formControlName="day" [ngClass]="{'is-invalid': submitted && f.day.errors}"
+                                class="form-select">
+                                <option value="">Select day</option>
+                                <option *ngFor="let c of daysOptions" [ngValue]="c.value">{{c.label}}</option>
+                            </select>
+                            <label *ngIf="submitted && f.day.invalid" class="invalid-feedback text-end">
+                                Please select day.
+                            </label>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Born in</label>
+                            <select formControlName="month" [ngClass]="{'is-invalid': submitted && f.month.errors}"
+                                class="form-select">
+                                <option value="">Select month</option>
+                                <option *ngFor="let c of monthsOptions" [ngValue]="c.value">{{c.label}}</option>
+                            </select>
+                            <label *ngIf="submitted && f.month.invalid" class="invalid-feedback text-end">
+                                Please select month.
+                            </label>
+                        </div>
+                        <div class="mb-2">
+                            <label>Born in</label>
+                            <select formControlName="year" [ngClass]="{'is-invalid': submitted && f.year.errors}"
+                                class="form-select">
+                                <option value="">Select month</option>
+                                <option *ngFor="let c of yearsOptions" [ngValue]="c.value">{{c.label}}</option>
+                            </select>
+                            <label *ngIf="submitted && f.year.invalid" class="invalid-feedback text-end">
+                                Please select year.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="submit" class="btn btn-primary col-3">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APIserviceService } from '../apiservice.service';
 import { appConstants } from '../app.constants';
 
 @Component({
-  selector: 'app-actor',
-  templateUrl: './actor.component.html',
-  styleUrls: ['./actor.component.css']
+  selector: 'app-editactor',
+  templateUrl: './editactor.component.html',
+  styleUrls: ['./editactor.component.css']
 })
-export class ActorComponent implements OnInit {
+export class EditactorComponent implements OnInit {
   submitted = false;
   _Form: FormGroup;
   daysOptions = appConstants.days;
   monthsOptions = appConstants.months;
   yearsOptions = appConstants.years;
+  statsOptions: any;
+  countriesOptions: any;
   constructor(private formBuilder: FormBuilder, private apiService: APIserviceService) { }
 
   ngOnInit(): void {
@@ -22,6 +24,17 @@ export class ActorComponent implements OnInit {
       day: ['', Validators.required],
       month: ['', Validators.required],
       year: ['', Validators.required],
+      description: ['', Validators.required],
+      genreName: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      country: ['', Validators.required],
+    })
+  }
+
+  ngAfterViewInit(): void { 
+    this.apiService.getStates().subscribe(resp=>{
+      this.countriesOptions=resp;
     })
   }
 
