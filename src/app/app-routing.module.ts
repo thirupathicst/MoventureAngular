@@ -10,6 +10,7 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { AuthorizedlayoutComponent } from './authorizedlayout/authorizedlayout.component';
 import { GuestlayoutComponent } from './guestlayout/guestlayout.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
+import { EditactorComponent } from './editactor/editactor.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'movie', component: MovieComponent },
       { path: 'watchlist', component: WatchlistComponent },
       { path: 'genres', component: GenersComponent },
-      {path:'moviedetails',component:MoviedetailsComponent}
+      {path:'moviedetails',component:MoviedetailsComponent},
+      {path:'editactor',component:EditactorComponent}
     ]
   },
   {

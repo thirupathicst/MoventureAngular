@@ -1,0 +1,105 @@
+<form [formGroup]="_Form" (ngSubmit)="onSubmit()">
+    <h4>Add actor</h4>
+    <div class="card">
+        <div class="card-body">
+            <h5>Actor details</h5>
+            <div class="row">
+                <div class="col-6">
+                    <label>Name</label>
+                    <input type="text" class="form-control" formControlName="name"
+                        [ngClass]="{'is-invalid': submitted && f.name.errors}">
+                    <label *ngIf="submitted && f.name.invalid" class="invalid-feedback text-end">
+                        Please enter name.
+                    </label>
+                </div>
+                <div class="col-2">
+                    <label>Born in</label>
+                    <select formControlName="day" [ngClass]="{'is-invalid': submitted && f.day.errors}"
+                        class="form-select">
+                        <option value="">Select day</option>
+                        <option *ngFor="let c of daysOptions" [ngValue]="c.value">{{c.label}}</option>
+                    </select>
+                    <label *ngIf="submitted && f.day.invalid" class="invalid-feedback text-end">
+                        Please select day.
+                    </label>
+                </div>
+                <div class="col-2">
+                    <label class="form-label">Born in</label>
+                    <select formControlName="month" [ngClass]="{'is-invalid': submitted && f.month.errors}"
+                        class="form-select">
+                        <option value="">Select month</option>
+                        <option *ngFor="let c of monthsOptions" [ngValue]="c.value">{{c.label}}</option>
+                    </select>
+                    <label *ngIf="submitted && f.month.invalid" class="invalid-feedback text-end">
+                        Please select month.
+                    </label>
+                </div>
+                <div class="col-2">
+                    <label>Born in</label>
+                    <select formControlName="year" [ngClass]="{'is-invalid': submitted && f.year.errors}"
+                        class="form-select">
+                        <option value="">Select month</option>
+                        <option *ngFor="let c of yearsOptions" [ngValue]="c.value">{{c.label}}</option>
+                    </select>
+                    <label *ngIf="submitted && f.year.invalid" class="invalid-feedback text-end">
+                        Please select year.
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>Genres</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-3">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="city"
+                        [ngClass]="{'is-invalid': submitted && f.city.errors}">
+                    <label *ngIf="submitted && f.city.invalid" class="invalid-feedback text-end">
+                        Please enter city.
+                    </label>
+                </div>
+                <div class="col-3">
+                    <label>State</label>
+                    <select formControlName="state" [ngClass]="{'is-invalid': submitted && f.state.errors}"
+                    class="form-select">
+                    <option value="">Select state</option>
+                    <option *ngFor="let c of statsOptions" [ngValue]="c.id">{{c.name}}</option>
+                </select>
+                <label *ngIf="submitted && f.state.invalid" class="invalid-feedback text-end">
+                    Please select state.
+                </label>
+                </div>
+                <div class="col-3">
+                    <label>Country</label>
+                    <select formControlName="country" [ngClass]="{'is-invalid': submitted && f.country.errors}"
+                    class="form-select">
+                    <option value="">Select country</option>
+                    <option *ngFor="let c of countriesOptions" [ngValue]="c.id">{{c.name}}</option>
+                </select>
+                <label *ngIf="submitted && f.country.invalid" class="invalid-feedback text-end">
+                    Please select country.
+                </label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+                    <h5 class="card-title">Thumbnail</h5>
+                    <input type="file" class="form-control" accept="image/jpg, image/png, image/jpeg">
+                </div>
+                <div class="col-8">
+                    <h5 class="card-title">Description</h5>
+                    <textarea class="form-control" rows="6"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="text-end">
+        <button class="btn btn-primary col-2" type="submit"><i class="bi bi-person-rolodex"></i> Create</button>
+    </div>
+</form>
